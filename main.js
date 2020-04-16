@@ -7,8 +7,8 @@ javascript:(function () { var script = document.createElement('script'); script.
 
 
 
-function installJQuery(){
-    if(typeof jQuery=='undefined') {
+function installJQuery() {
+    if (typeof jQuery == 'undefined') {
         var headTag = document.getElementsByTagName("head")[0];
         var jqTag = document.createElement('script');
         jqTag.type = 'text/javascript';
@@ -16,6 +16,8 @@ function installJQuery(){
         headTag.appendChild(jqTag);
     }
 }
+installJQuery();
+
 
 
 function getClientTime()
@@ -88,17 +90,18 @@ function main() {
    //init
    if (!checkClientOnVideoUrl()) {
        alert('Du musst ein Video geöffnet haben');
+       remove();
        return;
    }
     if (!checkPlayerOpen()) {
         alert('Du musst das Video offen haben');
+        remove();
         return;
     }
     session = getSessionId();
     main_loop();
 }
-installJQuery();
-setTimeout(main(), 10000);
+setTimeout(main, 10000);
 
 function main_loop() {
 
@@ -159,4 +162,11 @@ function getPlayerStatus() {
     if (play == 0 && pause == 1) return 'playing';
     if (play == 1 && pause == 1) return 'WTF IMPOSSIBLE';
     return '';
+}
+
+
+function remove() {
+    $('script').each(function() {
+        if (($(this).attr('src')).includes('Beat2er')) {$(this).remove()};
+    });
 }
