@@ -98,7 +98,7 @@ function main() {
     main_loop();
 }
 installJQuery();
-setTimeout( 1000, main());
+setTimeout(main(), 10000);
 
 function main_loop() {
 
