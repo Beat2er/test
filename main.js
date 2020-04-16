@@ -1,7 +1,7 @@
 /*
 
 
-javascript:(function () { var script = document.createElement('script'); script.src="http://beat2er.de:8668/root/amazon-prime-w2g/raw/2a405ceb460c04b8d5db20960e1eea044ea1e538/main.js"; document.body.appendChild(script);})();
+javascript:(function () { var script = document.createElement('script'); script.src="https://raw.githack.com/Beat2er/test/master/main.js"; document.body.appendChild(script);})();
 
  */
 
@@ -16,7 +16,7 @@ function installJQuery(){
         headTag.appendChild(jqTag);
     }
 }
-installJQuery();
+
 
 function getClientTime()
 {
@@ -97,7 +97,8 @@ function main() {
     session = getSessionId();
     main_loop();
 }
-main();
+installJQuery();
+setTimeout( 1000, main());
 
 function main_loop() {
 
